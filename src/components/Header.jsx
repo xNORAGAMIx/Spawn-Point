@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
                     <div className="flex items-center">
                         <h1 className="font-extrabold text-white text-3xl underline cursor-pointer">GAMERS</h1>
                     </div>
-                    
+
                     {/* Hamburger menu for mobile view */}
                     <button
                         className="md:hidden text-white focus:outline-none"
@@ -39,30 +40,30 @@ const Header = () => {
                     <nav className="hidden md:flex md:flex-grow justify-center">
                         <ul className="flex justify-center space-x-4 text-white text-2xl">
                             <li>
-                                <a href="#" className="font-extrabold hover:underline">HOME</a>
+                                <Link className="font-extrabold hover:underline" to='/'>HOME</Link>
                             </li>
                             <li>
-                                <a href="#" className="font-extrabold hover:underline">WORDLE</a>
+                                <Link className="font-extrabold hover:underline" to='/wordle'>WORDLE</Link>
                             </li>
                         </ul>
                     </nav>
-                    
+
                     {/* Extra buttons - visible only on large screens */}
                     <div className="hidden lg:flex items-center space-x-4">
                         <a href="#" className="bg-green-500 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded inline-block">Github</a>
                         <a href="#" className="bg-blue-500 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded inline-block">Download</a>
                     </div>
                 </div>
-                
+
                 {/* Nav items for mobile view - displayed when hamburger is clicked */}
                 {isMenuOpen && (
                     <div className="md:hidden">
                         <ul className="flex flex-col space-y-4 mt-4 text-white text-2xl">
                             <li>
-                                <a href="#" className="font-extrabold hover:underline">HOME</a>
+                                <Link className="font-extrabold hover:underline" to='/'>HOME</Link>
                             </li>
                             <li>
-                                <a href="#" className="font-extrabold hover:underline">WORDLE</a>
+                            <Link className="font-extrabold hover:underline" to='/wordle'>WORDLE</Link>
                             </li>
                         </ul>
                     </div>
