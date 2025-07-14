@@ -1,76 +1,103 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-    return (
-        <div className="p-2">
-            <header className="bg-gray-800 sticky top-0 z-50 px-4 rounded-2xl shadow-2xl shadow-gray-600 border-4 border-slate-200">
-                <div className="container mx-auto flex justify-between items-center py-4">
-                    <div className="flex items-center">
-                        <h1 className="font-extrabold text-white text-3xl underline cursor-pointer">GAMERS</h1>
-                    </div>
+  return (
+    <div className="p-2 font-body bg-parchment">
+      <header className="bg-warmYellow sticky top-0 z-50 px-4 rounded-2xl border-4 border-inkBlack shadow-toon">
+        <div className="container mx-auto flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <h1 className="font-heading text-4xl text-vintageRed drop-shadow-[2px_2px_0_#3B3A30] cursor-pointer hover:scale-105 transition-transform">
+              🎮 RESPAWN
+            </h1>
+          </div>
 
-                    {/* Hamburger menu for mobile view */}
-                    <button
-                        className="md:hidden text-white focus:outline-none"
-                        onClick={toggleMenu}
-                    >
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16m-7 6h7"
-                            />
-                        </svg>
-                    </button>
+          {/* Hamburger */}
+          <button
+            className="md:hidden text-inkBlack hover:text-vintageRed transition-transform transform hover:scale-110"
+            onClick={toggleMenu}
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
 
-                    {/* Nav items for desktop view */}
-                    <nav className="hidden md:flex md:flex-grow justify-center">
-                        <ul className="flex justify-center space-x-4 text-white text-2xl">
-                            <li>
-                                <Link className="font-extrabold hover:underline" to='/'>HOME</Link>
-                            </li>
-                            <li>
-                                <Link className="font-extrabold hover:underline" to='/wordle'>WORDLE</Link>
-                            </li>
-                        </ul>
-                    </nav>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex md:flex-grow justify-center">
+            <ul className="flex justify-center space-x-6 text-2xl text-inkBlack">
+              {["HOME", "WORDLE", "TYPING", "ROCK", "FLAPPY BIRD", "TIC-TAC-TOE"].map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={
+                      item === "HOME"
+                        ? "/"
+                        : `/${item.toLowerCase().replace(/-/g, "")}`
+                    }
+                    className="font-heading  decoration-vintageRed hover:text-vintageRed transition-all"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-                    {/* Extra buttons - visible only on large screens */}
-                    <div className="hidden lg:flex items-center space-x-4">
-                        <a href="#" className="bg-green-500 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded inline-block">Github</a>
-                        <a href="#" className="bg-blue-500 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded inline-block">Download</a>
-                    </div>
-                </div>
-
-                {/* Nav items for mobile view - displayed when hamburger is clicked */}
-                {isMenuOpen && (
-                    <div className="md:hidden">
-                        <ul className="flex flex-col space-y-4 mt-4 text-white text-2xl">
-                            <li>
-                                <Link className="font-extrabold hover:underline" to='/'>HOME</Link>
-                            </li>
-                            <li>
-                            <Link className="font-extrabold hover:underline" to='/wordle'>WORDLE</Link>
-                            </li>
-                        </ul>
-                    </div>
-                )}
-            </header>
+          {/* Right Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <a
+              href="https://github.com/xNORAGAMIx/Spawn-Point.git" target="_blank"
+              className="bg-softGreen text-inkBlack font-heading px-4 py-2 rounded-xl border-2 border-inkBlack shadow-toon hover:bg-vintageRed hover:text-white transition-all"
+            >
+              Github
+            </a>
+            <a
+              href="https://github.com/xNORAGAMIx/Spawn-Point/archive/refs/heads/main.zip"
+              download
+              className="bg-vintageRed text-white font-heading px-4 py-2 rounded-xl border-2 border-inkBlack shadow-toon hover:bg-softGreen hover:text-inkBlack transition-all"
+            >
+              Download
+            </a>
+          </div>
         </div>
-    )
-}
+
+        {/* Mobile Nav */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-2">
+            <ul className="flex flex-col space-y-3 text-2xl text-inkBlack">
+              {["HOME", "WORDLE","TYPING", "ROCK", "FLAPPY BIRD", "TIC-TAC-TOE"].map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={
+                      item === "HOME"
+                        ? "/"
+                        : `/${item.toLowerCase().replace(/-/g, "")}`
+                    }
+                    className="font-heading hover:underline hover:text-vintageRed"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </header>
+    </div>
+  );
+};
 
 export default Header;

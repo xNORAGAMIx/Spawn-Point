@@ -1,53 +1,17 @@
 import Letter from './Letter';
 
 const Board = () => {
-    
-    return (
-        <div className='space-y-2'>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={0} />
-                <Letter letterPos={1} attemptVal={0} />
-                <Letter letterPos={2} attemptVal={0} />
-                <Letter letterPos={3} attemptVal={0} />
-                <Letter letterPos={4} attemptVal={0} />
-            </div>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={1} />
-                <Letter letterPos={1} attemptVal={1} />
-                <Letter letterPos={2} attemptVal={1} />
-                <Letter letterPos={3} attemptVal={1} />
-                <Letter letterPos={4} attemptVal={1} />
-            </div>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={2} />
-                <Letter letterPos={1} attemptVal={2} />
-                <Letter letterPos={2} attemptVal={2} />
-                <Letter letterPos={3} attemptVal={2} />
-                <Letter letterPos={4} attemptVal={2} />
-            </div>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={3} />
-                <Letter letterPos={1} attemptVal={3} />
-                <Letter letterPos={2} attemptVal={3} />
-                <Letter letterPos={3} attemptVal={3} />
-                <Letter letterPos={4} attemptVal={3} />
-            </div>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={4} />
-                <Letter letterPos={1} attemptVal={4} />
-                <Letter letterPos={2} attemptVal={4} />
-                <Letter letterPos={3} attemptVal={4} />
-                <Letter letterPos={4} attemptVal={4} />
-            </div>
-            <div className='flex space-x-2'>
-                <Letter letterPos={0} attemptVal={5} />
-                <Letter letterPos={1} attemptVal={5} />
-                <Letter letterPos={2} attemptVal={5} />
-                <Letter letterPos={3} attemptVal={5} />
-                <Letter letterPos={4} attemptVal={5} />
-            </div>
+  return (
+    <div className="space-y-3 bg-warmYellow p-4 rounded-2xl border-4 border-inkBlack shadow-toon inline-block mx-auto mt-6">
+      {[...Array(6)].map((_, attemptVal) => (
+        <div key={attemptVal} className="flex space-x-3">
+          {[...Array(5)].map((_, letterPos) => (
+            <Letter key={letterPos} letterPos={letterPos} attemptVal={attemptVal} />
+          ))}
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
 
 export default Board;

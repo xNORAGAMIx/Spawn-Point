@@ -1,51 +1,73 @@
 const Instructions = () => {
-    return (
-        <div className="mt-10">
-            <div className="bg-gray-100 p-6 rounded-lg shadow-xl w-80">
-                <h2 className="text-2xl font-bold mb-4">How to Play</h2>
-                <p className="text-sm mb-6">Guess the hidden word in 6 tries. Each guess must be a valid 5-letter word. After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+  return (
+    <div className="mt-10 flex justify-center">
+      <div className="bg-warmYellow p-6 rounded-2xl border-4 border-inkBlack shadow-toon w-[350px] font-body text-inkBlack">
+        <h2 className="text-3xl font-heading text-vintageRed drop-shadow-[3px_3px_0_#3B3A30] mb-4 text-center">
+          🎯 How to Play
+        </h2>
 
-                {/* Visual Examples */}
-                <div className="space-y-4">
+        <p className="text-sm mb-6 leading-relaxed">
+          Guess the hidden word in <span className="font-bold">6 tries</span>.
+          Each guess must be a valid 5-letter word. After each guess, the
+          colors of the tiles will change to show how close your guess was to
+          the word.
+        </p>
 
-                    {/* First Row Example */}
-                    <div className="flex space-x-1">
-                        <div className="w-10 h-10 bg-green-500 text-white font-bold flex items-center justify-center">W</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">O</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">R</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">D</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">S</div>
-                    </div>
-                    <p className="text-sm">The letter <span className="font-bold text-green-600">W</span> is in the word and in the correct spot.</p>
+        {/* Visual Examples */}
+        <div className="space-y-5">
 
-                    {/* Second Row Example */}
-                    <div className="flex space-x-1">
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">T</div>
-                        <div className="w-10 h-10 bg-yellow-500 text-white font-bold flex items-center justify-center">E</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">S</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">T</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">S</div>
-                    </div>
-                    <p className="text-sm">The letter <span className="font-bold text-yellow-500">E</span> is in the word but in the wrong spot.</p>
-
-                    {/* Third Row Example */}
-                    <div className="flex space-x-1">
-                        <div className="w-10 h-10 bg-red-500 text-black font-bold flex items-center justify-center">P</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">L</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">A</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">Y</div>
-                        <div className="w-10 h-10 bg-gray-300 text-black font-bold flex items-center justify-center">S</div>
-                    </div>
-                    <p className="text-sm">The letter <span className="font-bold text-red-500">P</span> is not in the word at all.</p>
-
-                </div>
-
-                <div className="mt-6 text-center">
-                    <p className="font-bold">Good luck!</p>
-                </div>
+          {/* First Row */}
+          <div className="space-y-1">
+            <div className="flex space-x-2">
+              <div className="w-10 h-10 bg-softGreen text-inkBlack font-heading rounded-lg border-2 border-inkBlack shadow-toon flex items-center justify-center">W</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">O</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">R</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">D</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">S</div>
             </div>
-        </div>
-    )
-}
+            <p className="text-sm">
+              The letter <span className="font-bold text-softGreen">W</span> is
+              in the word and in the correct spot.
+            </p>
+          </div>
 
-export default Instructions
+          {/* Second Row */}
+          <div className="space-y-1">
+            <div className="flex space-x-2">
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">T</div>
+              <div className="w-10 h-10 bg-warmYellow text-inkBlack font-heading rounded-lg border-2 border-inkBlack shadow-toon flex items-center justify-center">E</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">S</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">T</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">S</div>
+            </div>
+            <p className="text-sm">
+              The letter <span className="font-bold text-warmYellow">E</span>{" "}
+              is in the word but in the wrong spot.
+            </p>
+          </div>
+
+          {/* Third Row */}
+          <div className="space-y-1">
+            <div className="flex space-x-2">
+              <div className="w-10 h-10 bg-vintageRed text-white font-heading rounded-lg border-2 border-inkBlack shadow-toon flex items-center justify-center">P</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">L</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">A</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">Y</div>
+              <div className="w-10 h-10 bg-parchment text-inkBlack font-heading rounded-lg border-2 border-inkBlack flex items-center justify-center">S</div>
+            </div>
+            <p className="text-sm">
+              The letter <span className="font-bold text-vintageRed">P</span> is
+              not in the word at all.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 text-center">
+          <p className="font-heading text-lg text-inkBlack drop-shadow-[1px_1px_0_#3B3A30]">🧠 Good luck!</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Instructions;
